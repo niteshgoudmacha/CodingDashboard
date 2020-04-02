@@ -1,1 +1,203 @@
-<p>profile works!</p>
+
+<!-- <div id="body"> -->
+<div class="container emp-profile">
+    <form method="post">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS52y5aInsxSm31CvHOFHWujqUx_wWTS9iM6s7BAm21oEN_RiGoog" alt=""/>
+                    <div class="file btn btn-lg btn-primary">
+                        <!-- Change Photo -->
+                        <!-- <input type="file" name="file"/> -->
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="profile-head">
+                    <div style="margin-bottom: 50px;">
+                            <h5>
+                                {{profile.fullname}}
+                            </h5>
+                            <h6 style="margin-bottom: 10px;">
+                                {{profile.coderHouse}}
+                            </h6>
+                            <p class="proile-rating">RANKING : <span>{{profile.rating}}</span></p>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Activity</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" (click)="editModeOn()"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-work">
+                    <p>WORK LINK</p>
+                    <a href="">Website Link</a><br/>
+                    <a href="">Bootsnipp Profile</a><br/>
+                    <a href="">Bootply Profile</a>
+                    <p>SKILLS</p>
+                    <a href="">Web Designer</a><br/>
+                    <a href="">Web Developer</a><br/>
+                    <a href="">WordPress</a><br/>
+                    <a href="">WooCommerce</a><br/>
+                    <a href="">PHP, .Net</a><br/>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="tab-content profile-tab" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>User Id</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p >{{profile.username}}</p>
+                                        <!-- <input type="text" *ngIf="isEditMode" class="form-control" formControlName="username" placeholder="Enter Username" value="{{profile.username}}"> -->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Name</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p *ngIf="!isEditMode">{{profile.fullname}}</p>
+                                        <input type="text" *ngIf="isEditMode" class="form-control mt-1 mb-1" placeholder="Enter Full Name" [(ngModel)]="profile.fullname" [ngModelOptions]="{standalone: true}" value="{{profile.fullname}}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Email</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p >{{profile.email}}</p>
+                                        <!-- <input type="email" *ngIf="isEditMode" class="form-control" formControlName="email" placeholder="Enter email" value="{{profile.email}}"> -->
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Hackerrank Handle</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p *ngIf="!isEditMode">{{profile.hackerrankId}}</p>
+                                        <input type="text" *ngIf="isEditMode" class="form-control mt-1 mb-1" [(ngModel)]="profile.hackerrankId" [ngModelOptions]="{standalone: true}" placeholder="Enter Hackerrank Handle" value="{{profile.hackerrankId}}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Codechef Handle</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p *ngIf="!isEditMode">{{profile.codechefId}}</p>
+                                        <input type="text" *ngIf="isEditMode" class="form-control mt-1 mb-1" [(ngModel)]="profile.codechefId" [ngModelOptions]="{standalone: true}" placeholder="Enter Codechef Handle" value="{{profile.codechefId}}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Codeforces Handle</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p *ngIf="!isEditMode">{{profile.codeforcesId}}</p>
+                                        <input type="text" *ngIf="isEditMode" class="form-control mt-1 mb-1" [(ngModel)]="profile.codeforcesId" [ngModelOptions]="{standalone: true}" placeholder="Enter Codeforces Handle" value="{{profile.codeforcesId}}">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Year</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{profile.presentYear}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Branch</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{profile.branch}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Year</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>{{profile.collegeName}}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <!-- <label>Codeforces Handle</label> -->
+                                        <div style="text-align: center;" class="p-2 {{messageColor}}">
+                                            {{successMessage}}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button *ngIf="isEditMode" class="btn btn-primary float-right" (click)="updateProfile()">Update</button>
+                                    </div>
+                                </div>
+                    </div>
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Experience</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Hourly Rate</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>10$/hr</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Total Projects</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>230</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>English Level</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>Expert</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Availability</label>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>6 months</p>
+                                    </div>
+                                </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label>Your Bio</label><br/>
+                                <p>Your detail description</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>           
+</div>
+<!-- </div> -->

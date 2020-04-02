@@ -21,6 +21,13 @@ export class AuthService {
     });
   }
 
+  updateProfile(body: any) {
+    return this._http.post(this.url + '/api/user/update/profile', body, {
+      observe: 'body',
+      headers: new HttpHeaders().set('token', localStorage.getItem('token'))
+    });
+  }
+
   login(body: any) {
     return this._http.post(this.url + '/api/user/login', body, {
       observe: 'body'

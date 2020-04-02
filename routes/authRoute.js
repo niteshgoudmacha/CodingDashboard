@@ -4,12 +4,13 @@ const jwt = require('jsonwebtoken');
 
 router.post('/register',  async (req, res) => {
     console.log(req.body);
-    const { username, email, collegeName, branch, presentYear, codechefId, codeforcesId, hackerrankId } = req.body;
+    const { fullname, username, email, collegeName, branch, presentYear, codechefId, codeforcesId, hackerrankId } = req.body;
     const check = await User.findOne({ email });
     if(check) {
         res.status(400).send({ message: "Email already exists"});
     }
     const user = new User({
+        fullname,
         email,
         username,
         password: User.hashPassword(req.body.password),
@@ -76,7 +77,7 @@ function verifyToken(req, res, next) {
 }
 
 router.get('/profile', verifyToken, async (req, res) => {
-    // console.log('username\n');
+    console.log('username\n');
     try {
         const user = await User.findById({ _id: decodedToken.id }, { password: 0, _id: 0, _v: 0 });
         if(!user) {
@@ -100,6 +101,25 @@ router.get('/getUsernames', verifyToken, async (req, res) => {
     } catch (err) {
         console.log(err);
         return res.status(501).json({ message: "Internal Server Error"});
+    }
+});
+
+router.post('/update/profile', verifyToken, async (req, res) => {
+    try {
+        console.log('body = ', req.body);
+        const { fullname, hackerrankId, codechefId, codeforcesId } = req.body; 
+        const user = await User.findOneAndUpdate(
+                { _id: decodedToken.id }, 
+                { $set: { fullname, hackerrankId, codechefId, codeforcesId}},
+            );
+        if(user) {
+            return res.status(200).send(user);
+        }
+        return res.status(404).send({ message: "user not found"});
+
+    } catch (err) {
+        console.log(err);
+        return res.status(501).send({message: "internal server error"});
     }
 });
 

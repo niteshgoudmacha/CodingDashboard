@@ -15,7 +15,7 @@ const corsOptions = {
     optionsSuccessStatus: 200
 };
 
-mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true }, (err) => {
+mongoose.connect(keys.mongoURI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false }, (err) => {
     if(err) {
         console.log(err);
     } else {

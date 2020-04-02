@@ -3,6 +3,10 @@ const bcrypt = require('bcrypt');
 const ContestDetails = require('./contest');
 
 const userSchema = new mongoose.Schema({
+    fullname: {
+        type: String,
+        required: true
+    },
     username: {
         type: String,
         required: true
@@ -29,6 +33,7 @@ const userSchema = new mongoose.Schema({
     },
     codechefId: {
         type: String,
+        required: true,
         default: "Not Provided"
     },
     hackerrankId: {
@@ -37,6 +42,7 @@ const userSchema = new mongoose.Schema({
     },
     codeforcesId: {
         type: String,
+        required: true,
         default: "Not Provided"
     },
     rating: {
@@ -56,6 +62,10 @@ const userSchema = new mongoose.Schema({
         default: 0
     },
     contestsList: [ContestDetails],
+    coderHouse: {
+        type: String,
+        default: "Beginner"
+    },
     createdDate:{
         type: Date,
         default: Date.now
