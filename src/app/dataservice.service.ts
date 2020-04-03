@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class DataserviceService {
-  url = 'http://localhost:8080'
+  url = ''
   constructor(private http: HttpClient) { 
     if(!isDevMode()) {
       this.url = ''

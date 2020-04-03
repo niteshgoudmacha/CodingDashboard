@@ -6,7 +6,7 @@ import { JwtHelperService } from "@auth0/angular-jwt";
   providedIn: 'root'
 })
 export class AuthService {
-  url = 'http://localhost:8080'
+  url = ''
   helper: any;
   constructor(private _http: HttpClient) { 
     this.helper = new JwtHelperService();
