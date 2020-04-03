@@ -142,7 +142,7 @@ router.post('/add/contest', verifyToken, async (req, res) => {
     }
 });
 
-router.get('/contests', verifyToken, async (req, res) => {
+router.get('/contests', async (req, res) => {
     try {
         const contests = await Contest.find({});
         if(!contests) {

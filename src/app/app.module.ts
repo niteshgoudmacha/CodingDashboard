@@ -59,6 +59,7 @@ import { NavComponent } from './nav/nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { CreateContestComponent } from './create-contest/create-contest.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,8 @@ import { CreateContestComponent } from './create-contest/create-contest.componen
     NavComponent,
     DashboardComponent,
     FooterComponent,
-    CreateContestComponent
+    CreateContestComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

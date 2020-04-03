@@ -6,10 +6,11 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateContestComponent } from './create-contest/create-contest.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent},
+  { path: '', component: HomeComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
