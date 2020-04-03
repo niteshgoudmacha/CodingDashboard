@@ -12,7 +12,6 @@ export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
   successMessage: String;
-  synth = (<any>window).speechSynthesis;
   isLoading: boolean = false;
 
   constructor(private authService: AuthService,

@@ -70,7 +70,17 @@ const userSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
-    contestsList: [ContestDetails],
+    contestsList: [{
+        contestId: {
+            type: String
+        },
+        rank: {
+            type: Number
+        },
+        rating: {
+            type: Number
+        }
+    }],
     coderHouse: {
         type: String,
         default: "Beginner"

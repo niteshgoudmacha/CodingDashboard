@@ -12,19 +12,24 @@
                 <!-- Rank Column -->
               <ng-container matColumnDef="Platform">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Platform </th>
-                <td mat-cell *matCellDef="let row"> {{row.Rank}} </td>
+                <td mat-cell *matCellDef="let row"> {{row.Platform}} </td>
               </ng-container>
               
               <!-- HackerrankHandle Column -->
               <ng-container matColumnDef="Name">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Contest Name </th>
-                <td mat-cell *matCellDef="let row"> {{row.HackerrankHandle}} </td>
+                <td mat-cell *matCellDef="let row"> <a href="{{row.url}}" >{{row.Name}}</a> </td>
               </ng-container>
           
               <!-- Rating Column -->
               <ng-container matColumnDef="Start">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Start </th>
-                <td mat-cell *matCellDef="let row"> {{row.Rating}} </td>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Time</th>
+                <td mat-cell *matCellDef="let row"> {{row.startTime}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="End">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> End Time </th>
+                <td mat-cell *matCellDef="let row"> {{row.endTime}} </td>
               </ng-container>
           
               <!-- TimesPlayed Column -->
@@ -44,32 +49,38 @@
             <app-loading-spinner></app-loading-spinner>
           </div>
     </div>
-    <div class="container ml-2 mr-2 mt-3">
+    
+    <div class="container ml-2 mr-2 mt-4">
         <h2>Past Contests</h2>
-        <mat-form-field>
+        <!-- <mat-form-field>
             <mat-label>Filter</mat-label>
             <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Halwa Jay">
-        </mat-form-field>
+        </mat-form-field> -->
           
           <div class="mat-elevation-z8">
-            <table mat-table [dataSource]="dataSource" matSort>
+            <table mat-table [dataSource]="pastContests" matSort>
               
                 <!-- Rank Column -->
               <ng-container matColumnDef="Platform">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Platform </th>
-                <td mat-cell *matCellDef="let row"> {{row.Rank}} </td>
+                <td mat-cell *matCellDef="let row"> {{row.Platform}} </td>
               </ng-container>
               
               <!-- HackerrankHandle Column -->
               <ng-container matColumnDef="Name">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Contest Name </th>
-                <td mat-cell *matCellDef="let row"> {{row.HackerrankHandle}} </td>
+                <td mat-cell *matCellDef="let row"> <a href="{{row.url}}" >{{row.Name}}</a> </td>
               </ng-container>
           
               <!-- Rating Column -->
               <ng-container matColumnDef="Start">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Start </th>
-                <td mat-cell *matCellDef="let row"> {{row.Rating}} </td>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Start Time</th>
+                <td mat-cell *matCellDef="let row"> {{row.startTime}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="End">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> End Time </th>
+                <td mat-cell *matCellDef="let row"> {{row.endTime}} </td>
               </ng-container>
           
               <!-- TimesPlayed Column -->
@@ -83,7 +94,7 @@
               </tr>
             </table>
           
-            <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator>
+            <!-- <mat-paginator [pageSizeOptions]="[10, 20, 50, 100]"></mat-paginator> -->
           </div>
           <div *ngIf="isLoading" style="text-align: center;">
             <app-loading-spinner></app-loading-spinner>

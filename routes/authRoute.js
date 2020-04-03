@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const User = require('../models/user');
+const Contest = require('../models/contest');
 const jwt = require('jsonwebtoken');
 
 router.post('/register',  async (req, res) => {
@@ -122,6 +123,35 @@ router.post('/update/profile', verifyToken, async (req, res) => {
     } catch (err) {
         console.log(err);
         return res.status(501).send({message: "internal server error"});
+    }
+});
+
+router.post('/add/contest', verifyToken, async (req, res) => {
+    const { name, url, startTime, endTime, platform  } = req.body;
+    console.log(startTime);
+    const contest = new Contest({
+        name, url, startTime, endTime, platform
+    });
+    try {
+        let contestRecord = await contest.save();
+        console.log(contestRecord);
+        return res.status(200).send(contestRecord);
+    } catch(err) {
+        console.log(err);
+        return res.status(501).json({message: "error adding contest, please try again"});
+    }
+});
+
+router.get('/contests', verifyToken, async (req, res) => {
+    try {
+        const contests = await Contest.find({});
+        if(!contests) {
+            res.status(404).send({ message: 'contests not found'});
+        }
+        res.status(200).send(contests);
+    } catch (err) {
+        console.log(err);
+        return res.status(501).json({ message: "Internal Server Error"});
     }
 });
 

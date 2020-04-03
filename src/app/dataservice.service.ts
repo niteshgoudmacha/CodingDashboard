@@ -1,13 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataserviceService {
-  
+  url = 'http://localhost:8080'
   constructor(private http: HttpClient) { }
   getdata() {
     return this.http.get('https://zodapi.herokuapp.com/api/players');
+  }
+
+  addContest(body: any) {
+    return this.http.post(this.url + '/api/user/add/contest', body, {
+      observe: 'body',
+      headers: new HttpHeaders().set('token', localStorage.getItem('token'))
+    });
+  }
+
+  getContests() {
+    return this.http.get(this.url + '/api/user/contests', {
+      observe: 'body',
+      headers: new HttpHeaders().set('token', localStorage.getItem('token'))
+    });
   }
 }

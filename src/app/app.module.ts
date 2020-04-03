@@ -58,6 +58,7 @@ import { AuthService } from './auth.service';
 import { NavComponent } from './nav/nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
+import { CreateContestComponent } from './create-contest/create-contest.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { FooterComponent } from './footer/footer.component';
     LoadingSpinnerComponent,
     NavComponent,
     DashboardComponent,
-    FooterComponent
+    FooterComponent,
+    CreateContestComponent
   ],
   imports: [
     BrowserModule,

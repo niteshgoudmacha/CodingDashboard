@@ -5,6 +5,7 @@ import { MatableComponent } from './matable/matable.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CreateContestComponent } from './create-contest/create-contest.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'profile', component: ProfileComponent},
-  { path: 'leaderboard', component: MatableComponent}
+  { path: 'leaderboard', component: MatableComponent},
+  { path: 'newcontest', component: CreateContestComponent}
 ];
 
 @NgModule({
