@@ -60,6 +60,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { FooterComponent } from './footer/footer.component';
 import { CreateContestComponent } from './create-contest/create-contest.component';
 import { HomeComponent } from './home/home.component';
+import { DataserviceService } from './dataservice.service';
 
 @NgModule({
   declarations: [
@@ -126,7 +127,7 @@ import { HomeComponent } from './home/home.component';
     HttpClientModule,
     JwtModule
   ],
-  providers: [],
+  providers: [AuthService, DataserviceService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

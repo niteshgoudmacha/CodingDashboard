@@ -59,9 +59,6 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(!this.authService.isAuth()) {
-      this._router.navigate(['/']);
-    }
     this.isLoading = true;
     this.data.getContests().subscribe(contests => {
       this.isLoading = false;
