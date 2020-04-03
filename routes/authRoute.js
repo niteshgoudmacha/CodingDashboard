@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 router.post('/register',  async (req, res) => {
     console.log(req.body);
-    const { fullname, username, email, collegeName, branch, presentYear, codechefId, codeforcesId, hackerrankId } = req.body;
+    const { fullname, username, email, gender, motto, collegeName, branch, presentYear, codechefId, codeforcesId, hackerrankId } = req.body;
     const check = await User.findOne({ email });
     if(check) {
         res.status(400).send({ message: "Email already exists"});
@@ -13,6 +13,8 @@ router.post('/register',  async (req, res) => {
         fullname,
         email,
         username,
+        gender,
+        motto,
         password: User.hashPassword(req.body.password),
         collegeName,
         branch,
@@ -107,10 +109,10 @@ router.get('/getUsernames', verifyToken, async (req, res) => {
 router.post('/update/profile', verifyToken, async (req, res) => {
     try {
         console.log('body = ', req.body);
-        const { fullname, hackerrankId, codechefId, codeforcesId } = req.body; 
+        const { fullname, hackerrankId, codechefId, codeforcesId, motto } = req.body; 
         const user = await User.findOneAndUpdate(
                 { _id: decodedToken.id }, 
-                { $set: { fullname, hackerrankId, codechefId, codeforcesId}},
+                { $set: { fullname, hackerrankId, codechefId, codeforcesId, motto}},
             );
         if(user) {
             return res.status(200).send(user);

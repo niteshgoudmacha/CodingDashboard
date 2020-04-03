@@ -12,6 +12,7 @@
         <div class="navbar-nav">
             <a href="/" class="nav-item nav-link active">Home</a>
             <a href="#" class="nav-item nav-link">About</a>
+            <a href="/dashboard" class="nav-item nav-link" *ngIf="isAuth()">Dashboard</a>
             <a href="/leaderboard" class="nav-item nav-link" *ngIf="isAuth()">Leaderboard</a>
         </div>
         <!-- <form class="form-inline m-auto">

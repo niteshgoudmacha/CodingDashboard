@@ -1,6 +1,5 @@
-<!-- <app-nav></app-nav> -->
 <div class="container">
-    <div class="card bg-secondary" style="width: 90%; padding: 10%; margin: 10%;">
+    <div class="card bg-secondary" style="width: 90%; padding: 10%; margin-top: 10%; margin-left: 5%; margin-right: 5%;">
         <h2 class="card-title">Register</h2>
         <form style="width: 100%;" [formGroup]="registerForm">
             <div class="form-group">
@@ -48,6 +47,14 @@
                 </p>
             </div>
             <div class="form-group">
+                <label>Select Gender</label><br>
+                <select  formControlName="gender">
+                    <option *ngFor="let name of genderList; let i = index" [value]="name">
+                        {{name}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
                 <label>Select College Name</label><br>
                 <select  formControlName="collegeName">
                     <option *ngFor="let name of collegeNamesList; let i = index" [value]="name">
@@ -91,6 +98,10 @@
                 <!-- <p *ngIf="isValid('codechefId')">
                     Invalid Codeforces Handle
                 </p> -->
+            </div>
+            <div class="form-group">
+                <label>Motto (Optional)</label>
+                <input type="text" class="form-control" formControlName="motto"  placeholder="Motto">
             </div>
             
             <!-- <div class="form-group">

@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   successMessage: string = '';
   messageColor: string = '';
 
+
   constructor(private authService: AuthService,
     private _router: Router) { 
     
@@ -24,7 +25,8 @@ export class ProfileComponent implements OnInit {
       fullname: '',
       codechefId: '',
       hackerrankId: '',
-      codeforcesId: ''
+      codeforcesId: '',
+      motto: ''
     };
 
     if(!this.authService.isAuth()) {

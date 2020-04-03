@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
   collegeNamesList: any;
   presentYearList: any;
   branchList: any;
+  genderList: any;
   usernamesList: any;
   errorMessage: string = '';
 
@@ -32,7 +33,9 @@ export class RegisterComponent implements OnInit {
       codeforcesId: new FormControl(null),
       collegeName: new FormControl(null, Validators.required),
       branch: new FormControl(null, Validators.required),      
-      presentYear: new FormControl(null, Validators.required)
+      presentYear: new FormControl(null, Validators.required),
+      gender: new FormControl(null, Validators.required),
+      motto: new FormControl(null),
     });
 
     this.collegeNamesList = [ "CMR College Of Engineering & Technology", "Others"];
@@ -40,6 +43,8 @@ export class RegisterComponent implements OnInit {
     this.branchList = [ "CSE", "ECE", "EEE", "CIVIL", "OTHERS" ];
 
     this.presentYearList = [ 1, 2, 3 , 4 ];
+
+    this.genderList = ["Male", "Female", "Others"];
 
     this.registerForm.controls.password.valueChanges
     .subscribe(
@@ -106,7 +111,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    console.log(this.registerForm.value);
+    // console.log(this.registerForm.value);
     // console.log(this.registerForm);
     this.isLoading = true;
     this.authService.submitRegister(this.registerForm.value)

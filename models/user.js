@@ -13,7 +13,11 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        require: true
+        required: true
+    },
+    gender: {
+        type: String,
+        required: true
     },
     email:{
         type: String,
@@ -35,6 +39,11 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         default: "Not Provided"
+    },
+    motto: {
+        type: String,
+        required: true,
+        default: 'Not Provided'
     },
     hackerrankId: {
         type: String,

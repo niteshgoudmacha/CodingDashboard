@@ -57,6 +57,7 @@ import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.compo
 import { AuthService } from './auth.service';
 import { NavComponent } from './nav/nav.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ProfileComponent,
     LoadingSpinnerComponent,
     NavComponent,
-    DashboardComponent
+    DashboardComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
