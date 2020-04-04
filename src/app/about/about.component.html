@@ -1,0 +1,20 @@
+<!-- <app-nav></app-nav> -->
+<div class="container">
+    <div class="card bg-secondary" style="width: 90%; padding: 10%; margin: 10%;">
+        <h2 class="card-title">Feedback</h2>
+        <form style="width: 100%;" [formGroup]="feedbackForm">
+            <div class="form-group">
+                <label>Send any feedback or report bugs here</label>
+                <textarea class="form-control" formControlName="message" aria-describedby="emailHelp" placeholder="Enter your feedback or report any bugs here"></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary m-2" [disabled] = "!formValid()" (click)="send()">Send</button>
+            <div *ngIf="isLoading" style="text-align: center;">
+                <app-loading-spinner></app-loading-spinner>
+            </div>
+            <div style="text-align: center;">
+                {{successMessage}}
+            </div>
+        </form>
+    </div>
+</div>

@@ -7,10 +7,13 @@ import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CreateContestComponent } from './create-contest/create-contest.component';
 import { HomeComponent } from './home/home.component';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { AboutComponent } from './about/about.component';
 
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
+  { path: 'about', component: AboutComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},

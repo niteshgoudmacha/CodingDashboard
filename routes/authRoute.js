@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const User = require('../models/user');
 const Contest = require('../models/contest');
+const Feedback = require('../models/feedback');
 const jwt = require('jsonwebtoken');
 
 router.post('/register',  async (req, res) => {
@@ -152,6 +153,23 @@ router.get('/contests', async (req, res) => {
     } catch (err) {
         console.log(err);
         return res.status(501).json({ message: "Internal Server Error"});
+    }
+});
+
+router.post('/feedback', verifyToken, async (req, res) => {
+    console.log(req.body);
+    const { message  } = req.body;
+    const feedback = new Feedback({
+        message,
+        name: decodedToken.username
+    });
+    try {
+        let feedbackRecord = await feedback.save();
+        console.log(feedbackRecord);
+        return res.status(200).send(feedbackRecord);
+    } catch(err) {
+        console.log(err);
+        return res.status(501).json({message: "error sending feedback, please try again"});
     }
 });
 

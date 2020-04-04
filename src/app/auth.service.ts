@@ -6,13 +6,20 @@ import { JwtHelperService } from "@auth0/angular-jwt";
   providedIn: 'root'
 })
 export class AuthService {
-  url = ''
+  url = 'http://localhost:8080'
   helper: any;
   constructor(private _http: HttpClient) { 
     this.helper = new JwtHelperService();
     if(!isDevMode()) {
       this.url = ''
     }
+  }
+
+  sendFeedback(body: any) {
+    return this._http.post(this.url + '/api/user/feedback', body, {
+      observe: 'body',
+      headers: new HttpHeaders().set('token', localStorage.getItem('token'))
+    });
   }
   
   submitRegister(body: any) {
@@ -56,4 +63,6 @@ export class AuthService {
     }
     return false;
   }
+
+  
 }

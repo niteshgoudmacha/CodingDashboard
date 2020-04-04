@@ -61,6 +61,8 @@ import { FooterComponent } from './footer/footer.component';
 import { CreateContestComponent } from './create-contest/create-contest.component';
 import { HomeComponent } from './home/home.component';
 import { DataserviceService } from './dataservice.service';
+import { FeedbackComponent } from './feedback/feedback.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import { DataserviceService } from './dataservice.service';
     DashboardComponent,
     FooterComponent,
     CreateContestComponent,
-    HomeComponent
+    HomeComponent,
+    FeedbackComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
