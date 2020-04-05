@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild  } from '@angular/core';
 import { Chart } from 'chart.js';
-import { Data } from '../../app/Data';
+import { Data } from '../data';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
