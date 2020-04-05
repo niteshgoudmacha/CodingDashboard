@@ -58,6 +58,10 @@ const userSchema = new mongoose.Schema({
         type: Number,
         default: 1500
     },
+    highestRating: {
+        type: Number,
+        default: 1500
+    },
     volatility: {
         type: Number,
         default: 125
@@ -72,6 +76,12 @@ const userSchema = new mongoose.Schema({
     },
     contestsList: [{
         contestId: {
+            type: String
+        },
+        contestName: {
+            type: String
+        },
+        contestUrl: {
             type: String
         },
         rank: {

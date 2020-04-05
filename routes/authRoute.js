@@ -173,4 +173,20 @@ router.post('/feedback', verifyToken, async (req, res) => {
     }
 });
 
+router.get('/ratings', verifyToken,  async (req, res) => {
+    try {
+        const contests = await User.find({ _id: decodedToken.id }, { contestsList: 1 });
+        // const add = await User.findOneAndUpdate({ _id: decodedToken.id }, { $push: { "contestsList": { contestId: "efg", rank: 2, rating: 1660}}});
+        // add.save();
+        console.log(contests[0]);
+        if(!contests) {
+            res.status(404).send({ message: 'contests not found'});
+        }
+        res.status(200).send(contests[0]);
+    } catch (err) {
+        console.log(err);
+        return res.status(501).json({ message: "Internal Server Error"});
+    }
+});
+
 module.exports = router;

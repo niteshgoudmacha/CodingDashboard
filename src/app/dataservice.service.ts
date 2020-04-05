@@ -25,4 +25,11 @@ export class DataserviceService {
   getContests() {
     return this.http.get(this.url + '/api/user/contests');
   }
+
+  getUserRatings() {
+    return this.http.get(this.url + '/api/user/ratings', {
+      observe: 'body',
+      headers: new HttpHeaders().set('token', localStorage.getItem('token'))
+    });
+  }
 }

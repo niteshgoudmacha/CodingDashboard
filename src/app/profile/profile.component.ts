@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Chart } from 'chart.js';
+import { Data } from '../../app/Data';
+import { HttpClient } from '@angular/common/http';
+import { DataserviceService } from '../dataservice.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,10 +19,18 @@ export class ProfileComponent implements OnInit {
   presentYearList: any;
   successMessage: string = '';
   messageColor: string = '';
+  // line chart
+  data: Data[];  
+  Contest = [];  
+  Rating = [];  
+  Linechart = [];  
+  // --- line chart --- 
 
 
   constructor(private authService: AuthService,
-    private _router: Router) { 
+    private dataService: DataserviceService,
+    private _router: Router,
+    private httpClient: HttpClient) { 
     
     this.presentYearList = [ 1, 2, 3 , 4 ];
     this.profile = {
@@ -49,6 +61,57 @@ export class ProfileComponent implements OnInit {
       (err) => {
         console.log(err);
       });
+      this.generateRatingsGraph();
+  }
+
+  generateRatingsGraph() {
+
+    this.dataService.getUserRatings().subscribe((contests) => {
+      // for(var i: contests)
+      this.Contest.push("Initail");
+      this.Rating.push("1500");
+      contests['contestsList'].forEach(element => {
+        console.log(element);
+        this.Contest.push(element.contestName);
+        this.Rating.push(element.rating);
+      });
+
+      this.Linechart = new Chart('canvas', {  
+        type: 'line',  
+        data: { 
+          labels: this.Contest,  
+          datasets: [  
+            {  
+              data: this.Rating,  
+              borderColor: '#3cb371',  
+              backgroundColor: "#C9E0CA",  
+            }  
+          ] 
+        },  
+        options: {  
+          legend: {  
+            display: false  
+          },  
+          scales: {  
+            xAxes: [{  
+              // stacked: true,
+              display: true  
+            }],  
+            yAxes: [{  
+              // stacked: true,
+              display: true,
+            }],  
+          }  
+        }  
+      });
+    },
+    (err) => {
+      console.log(err);
+    });
+    // line chart
+
+      
+    //
   }
 
   editModeOn() {
@@ -77,15 +140,17 @@ export class ProfileComponent implements OnInit {
       this.successMessage = "Updated Successfully";
       this.messageColor = 'bg-success'
       this.isEditMode = false;
-      this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-        this._router.navigate(['/profile']);
-    }); 
+      // this._router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      //   this._router.navigate(['/profile']);
+      // }); 
+      this._router.navigate(['/feedback']);
     },
     (err) => {
       this.successMessage = err.error.message;
       this.messageColor = 'bg-danger'
       this.isEditMode = false;
-    })
+    });
+    
   }
 
 }

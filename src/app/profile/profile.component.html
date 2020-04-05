@@ -1,7 +1,7 @@
 
 <!-- <div id="body"> -->
-<div class="container emp-profile">
-    <form method="post">
+<div class="container emp-profile p-4">
+    <form>
         <div class="row">
             <div class="col-md-4">
                 <div class="profile-img">
@@ -21,7 +21,8 @@
                             <h6 style="margin-bottom: 10px;">
                                 {{profile.coderHouse}}
                             </h6>
-                            <p class="proile-rating">RANKING : <span>{{profile.rating}}</span></p>
+                            <p class="proile-rating">Current Rating : <span>{{profile.rating}}</span></p>
+                            <p class="proile-rating">Highest Rating : <span>{{profile.highestRating}}</span></p>
                     </div>
                     <div style="margin-top: 20px;">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -159,15 +160,25 @@
                                 </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Experience</label>
+                        <h1>Rating Graph</h1>
+<!-- 
+                        <div class="container" style="position: relative; height:50vh; width:60vw">    
+
+                            <canvas id="canvas">{{ Linechart }}</canvas>    
+                          
+                        </div> -->
+                                 <div class="row" style="height: auto;">
+                                    <div class="col-md-2">
                                     </div>
-                                    <div class="col-md-6">
-                                        <p>Expert</p>
+                                    <div class="col-md-8" >
+                                        <div class="container p-3 bg-light" style="position: relative;">    
+                                            <canvas id="canvas">{{ Linechart }}</canvas>    
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
                                     </div>
                                 </div>
-                                <div class="row">
+                               <!-- <div class="row">
                                     <div class="col-md-6">
                                         <label>Hourly Rate</label>
                                     </div>
@@ -204,7 +215,7 @@
                                 <label>Your Bio</label><br/>
                                 <p>Your detail description</p>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

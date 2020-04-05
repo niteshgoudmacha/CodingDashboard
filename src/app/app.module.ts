@@ -63,6 +63,7 @@ import { HomeComponent } from './home/home.component';
 import { DataserviceService } from './dataservice.service';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { AboutComponent } from './about/about.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +79,8 @@ import { AboutComponent } from './about/about.component';
     CreateContestComponent,
     HomeComponent,
     FeedbackComponent,
-    AboutComponent
+    AboutComponent,
+    LineChartComponent,
   ],
   imports: [
     BrowserModule,

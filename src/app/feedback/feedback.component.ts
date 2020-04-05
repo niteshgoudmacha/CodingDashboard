@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-feedback',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedbackComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this._router.navigate(['/profile']);
   }
 
 }

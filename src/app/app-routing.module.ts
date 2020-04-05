@@ -9,6 +9,7 @@ import { CreateContestComponent } from './create-contest/create-contest.componen
 import { HomeComponent } from './home/home.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { AboutComponent } from './about/about.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
 
 
 const routes: Routes = [
@@ -19,7 +20,9 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'profile', component: ProfileComponent},
   { path: 'leaderboard', component: MatableComponent},
-  { path: 'newcontest', component: CreateContestComponent}
+  { path: 'newcontest', component: CreateContestComponent},
+  { path: 'line', component: LineChartComponent},
+  { path: 'feedback', component: FeedbackComponent}
 ];
 
 @NgModule({
