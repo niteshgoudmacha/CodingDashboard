@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -133,7 +133,7 @@ import { LineChartComponent } from './line-chart/line-chart.component';
     HttpClientModule,
     JwtModule
   ],
-  providers: [AuthService, DataserviceService],
+  providers: [AuthService, DataserviceService, Title],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

@@ -70,14 +70,20 @@ export class DashboardComponent implements OnInit {
       let c = 1;
       let prevR = -1;
       this.contests.forEach(element => {
-        console.log(new Date(element.endTime) >= new Date());
+        console.log('hel ', );
+        let startTime = element.startTime.split('T')[0].split('-')[2] + '-' + 
+        element.startTime.split('T')[0].split('-')[1] + '-' + element.startTime.split('T')[0].split('-')[0] + '\n';
+        startTime += element.startTime.split('T')[1].split('.')[0];
+        let endTime = element.endTime.split('T')[0].split('-')[2] + '-' + 
+        element.endTime.split('T')[0].split('-')[1] + '-' + element.endTime.split('T')[0].split('-')[0] + '\n';
+        endTime += element.endTime.split('T')[1].split('.')[0];
         if(new Date(element.endTime) > new Date()) {
           ds.push({
             Platform: element.platform,
             Name: element.name,
             url: element.url,
-            startTime: new Date(element.startTime).toLocaleDateString() + "\n" + new Date(element.startTime).toLocaleTimeString(),
-            endTime: new Date(element.endTime).toLocaleDateString() + "\n" + new Date(element.endTime).toLocaleTimeString()
+            startTime,
+            endTime
           });
         } 
         else {
@@ -85,8 +91,8 @@ export class DashboardComponent implements OnInit {
             Platform: element.platform,
             Name: element.name,
             url: element.url,
-            startTime: new Date(element.startTime).toLocaleDateString() + "\n" + new Date(element.startTime).toLocaleTimeString(),
-            endTime: new Date(element.endTime).toLocaleDateString() + "\n" + new Date(element.endTime).toLocaleTimeString()
+            startTime,
+            endTime
           });
         }
         

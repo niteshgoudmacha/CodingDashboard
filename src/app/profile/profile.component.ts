@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
   presentYearList: any;
   successMessage: string = '';
   messageColor: string = '';
+  profileImage: string = '';
   // line chart
   Contest = [];  
   Rating = [];  
