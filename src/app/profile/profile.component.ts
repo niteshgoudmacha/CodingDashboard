@@ -3,7 +3,6 @@ import { AuthService } from '../auth.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Chart } from 'chart.js';
-import { Data } from '../../app/Data';
 import { HttpClient } from '@angular/common/http';
 import { DataserviceService } from '../dataservice.service';
 
@@ -20,7 +19,6 @@ export class ProfileComponent implements OnInit {
   successMessage: string = '';
   messageColor: string = '';
   // line chart
-  data: Data[];  
   Contest = [];  
   Rating = [];  
   Linechart = [];  
