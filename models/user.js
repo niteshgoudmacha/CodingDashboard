@@ -37,12 +37,10 @@ const userSchema = new mongoose.Schema({
     },
     codechefId: {
         type: String,
-        required: true,
         default: "Not Provided"
     },
     motto: {
         type: String,
-        required: true,
         default: 'Not Provided'
     },
     hackerrankId: {
@@ -51,7 +49,6 @@ const userSchema = new mongoose.Schema({
     },
     codeforcesId: {
         type: String,
-        required: true,
         default: "Not Provided"
     },
     rating: {
